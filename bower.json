@@ -1,0 +1,17 @@
+{
+  "name": "full-mean-anonymous-notes",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Jason <rhuidean06@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/rhuidean/full-mean-anonymous-notes",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
