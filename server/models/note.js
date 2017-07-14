@@ -7,3 +7,6 @@ var NoteSchema = new mongoose.Schema({
 	}
 
 },{timestamps: true})
+
+//schema hasn't been registered for model "Note".
+mongoose.model('Note', NoteSchema);

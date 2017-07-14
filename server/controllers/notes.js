@@ -1,15 +1,31 @@
-var express = require('express');
-var bp = require('body-parser');
-var app = express();
+//Cannot find module './server/config/mongoose'->duplicate server.js content
 
-app.use(express.static(__dirname + '/client'));
-app.use(express.static(__dirname + '/bower_components'));
+var mongoose = require("mongoose");
 
-app.use(bp.json());
+// import relevant models
+var Note = mongoose.model('Note');
 
-require('./server/config/mongoose');
-require('./server/config/routes')(app);
+module.exports = {
+	
+	index: function(req,res){
+		Note.find({}).sort('-createdAt').exec(function(err,notes){
+			if(err){
+				return res.json(err);
+			}
+			return res.json(notes);
+		})
+	},
 
-app.listen(4200,function(){
-	console.log('listening on port 4200');
-})
+	create: function(req,res){
+		Note.create(req.body, function(err,note){
+			if(err){
+				return res.json(err);
+			}
+			else {
+				return res.json(note);
+			}
+		})
+	},
+}
+
+//TypeError: res.json is not a function req<->res
