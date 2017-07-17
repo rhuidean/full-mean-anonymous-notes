@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+  <div class="top margin">
+    <p></p>
+
+  </div>
+  <form (submit)="onSubmit()">
+    <div class="form-group row">
+      <label for="note" class="col-sm-2 col-form-label">Note:</label>
+      <input type="text" class="col-sm-8 form-control" placeholder="" name="note" 
+      required  
+      minlength="3" 
+      [(ngModel)]='note.note' #note="ngModel">
+      <!-- {{note.errors|json}}
+      {{note.valid|json}} -->
+      <div *ngIf='!note.valid' ng-style="{'color':'red'}">Note must be longer than 3 characters</div>
+      <div class='col-sm-2'>
+        <button type="submit" class="btn btn-primary">Add Note</button>
+      </div>
+    </div>
+  </form>
+  <div class="bottom margin">
+    <p></p>
+  </div>
+</div>
+
+<!--Spelling ngIf app.modules import @ngmodule -->
